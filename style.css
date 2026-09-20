@@ -1,0 +1,15 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer {
+    background-color: aqua;
+    /*border: ;*/
+    height: 200px;
+    width: 200px;
+}
