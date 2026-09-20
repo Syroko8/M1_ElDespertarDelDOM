@@ -1,7 +1,80 @@
+:root {
+    --shell: #cbc9be;       
+    --shell-dark: #a9a79c;
+    --grey-wrapper: #575770;       
+    --screen: #0a1624;
+    --label: #2a2f7a;       
+    --magenta: #a3315f;
+}
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background: linear-gradient(160deg, rgb(26, 26, 72), rgb(22, 37, 75));
+    background: linear-gradient(180deg, #0a1024, #131d3d 70%, #0b1226);
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
+.console {
+    width: 420px;
+    padding: 22px 22px 40px;
+    border-radius: 12px 12px 70px 12px;
+    background: linear-gradient(160deg, #d8d6cc, var(--shell) 40%, var(--shell-dark));
+}
+
+.gray-wrapper {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 24px 22px;
+    border-radius: 10px 10px 44px 10px;
+    background-color: var(--grey-wrapper);
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.wrapper-label {
+    margin: 0 0 8px;
+    text-align: center;
+    color: #d5d4e6;
+    font-size: 0.5rem;  
+}
+
+.led {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background-color: red;
+    left: 8px;
+    top: 50%;
+    border-radius: 50px;
+    box-shadow: 0 0 15px 3px red;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    color: #9ce7ff;
+    font-size: 0.8rem;
+    text-shadow: 0 0 6px rgba(156, 231, 255, 0.7);
+}
+
+.board {
+    display: grid;
+    width: 100%;
+    border: 1px solid #1b2a44;
+    background: #050b18;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+
+.cell {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(120, 170, 220, 0.06);
+  height: 20px;
+  width: 20px;
+}
