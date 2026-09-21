@@ -77,4 +77,29 @@ body {
   border: 1px solid rgba(120, 170, 220, 0.06);
   height: 20px;
   width: 20px;
+
+    &.energy::after {
+        content: '';
+        width: 50%;
+        height: 50%;
+        background-color: rgba(105, 173, 233, 0.724);
+        box-shadow: 0 0 8px 3px rgb(105, 173, 233);
+        border-radius: 50%;
+    }
+
+    &.head::after {
+        content: '';
+        width: 60%;
+        height: 60%;
+        background-color: rgba(105, 173, 233, 0.724);
+        border-radius: 50%;
+    }
+
+    &.chain {
+        content: '';
+        width: 40%;
+        height: 40%;
+        background-color: rgba(105, 173, 233, 0.724);
+        border-radius: 50%;
+    }
 }
