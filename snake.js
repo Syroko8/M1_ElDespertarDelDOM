@@ -13,6 +13,9 @@ let interval = null;
 // Elementos del DOM.
 const board = document.getElementById('board');
 const scoreCounter = document.getElementById('score');
+const bestCounter = document.getElementById('best-score'); 
+const overlay = document.getElementById('overlay');
+const overlayText = document.getElementById('overlayText');
 
 const directions = {
     'up':   {x: 0, y: -1},
@@ -118,7 +121,7 @@ const step = () => {
     const hittingWall = head.x < 0 || head.x >= boardSize ||
      head.y < 0 || head.y >= boardSize;
     if (hittingWall || isOnChain(head.x, head.y)) {
-        // Game over.
+        endGame();
         return;
     }
 
@@ -139,25 +142,38 @@ const step = () => {
 }
 
 const endGame = () => {
-    
-    // clearInterval(interval);
+    // Actualizamos la mejor puntuación.
+    if (best < score) best = score;
+    bestCounter.innerText = `BEST ${best}`;
+    // Detenemos la ejecución del flujo del juego.
+    clearInterval(interval);
+    // Mostramos el overlay.
+    const lossText = `Score: ${score} \nPress START`;
+    overlayText.innerText = lossText;
+    overlay.className = 'overlay';
+    running = !running;
 }
 
 const startGame = () => {
-    // Generamos celdas.
-    generateCells();
+    resetGame();
     // Generamos un primer orbe.
     generateEnergy();
-    // Generamos cadena de inicial.
-    chain.push({x: 7, y: 7});
-    chain.push({x: 6, y: 7});
+    // Ocultamos el overlay.
+    overlay.classList.add('hidden');
     // Iniciamos juego.
     running = !running;
     interval = setInterval(step, speed);
 }
 
 const resetGame = () => {
-
+    score = 0;
+    direction = 'right';
+    // Vaciamos la cadena.
+    chain.splice(0, chain.length);
+    // Generamos cadena de inicial.
+    chain.push({x: 7, y: 7});
+    chain.push({x: 6, y: 7});
+    scoreCounter.textContent = `SCORE: ${score}`;
 }
 
 /**
@@ -186,9 +202,14 @@ document.addEventListener("keydown", (event) => {
         /* Evitamos que la web haga scroll al usar las teclas (No debería ocurrir ya que la 
         web no tiene scroll).*/
         event.preventDefault();
-        changeDirection(keys[key]); 
+        if (!running) 
+            startGame();
+        else 
+            changeDirection(keys[key]); 
     } 
 })
 
 /**Inicio del programa*/
-startGame();
+
+// Generamos celdas para darle forma al tablero.
+generateCells();
