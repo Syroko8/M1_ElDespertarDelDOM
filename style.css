@@ -95,7 +95,7 @@ body {
         border-radius: 50%;
     }
 
-    &.chain {
+    &.chain::after {
         content: '';
         width: 40%;
         height: 40%;
