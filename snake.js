@@ -7,7 +7,7 @@ let direction = 'right';
 let score = 0;
 let best = 0;
 let running = false;
-let speed = 200;
+let speed = 150;
 let interval = null;
 
 // Elementos del DOM.
@@ -146,6 +146,8 @@ const endGame = () => {
 const startGame = () => {
     // Generamos celdas.
     generateCells();
+    // Generamos un primer orbe.
+    generateEnergy();
     // Generamos cadena de inicial.
     chain.push({x: 7, y: 7});
     chain.push({x: 6, y: 7});
