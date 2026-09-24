@@ -16,6 +16,10 @@ const scoreCounter = document.getElementById('score');
 const bestCounter = document.getElementById('best-score'); 
 const overlay = document.getElementById('overlay');
 const overlayText = document.getElementById('overlayText');
+const startButtonRound = document.getElementById('start-button-round');
+const startButtonThin = document.getElementById('start-button-thin');
+const stopButtonRound = document.getElementById('stop-button-round');
+const stopButtonThin = document.getElementById('stop-button-thin');
 
 const directions = {
     'up':   {x: 0, y: -1},
@@ -202,12 +206,25 @@ document.addEventListener("keydown", (event) => {
         /* Evitamos que la web haga scroll al usar las teclas (No debería ocurrir ya que la 
         web no tiene scroll).*/
         event.preventDefault();
-        if (!running) 
-            startGame();
-        else 
-            changeDirection(keys[key]); 
-    } 
+        if (running) changeDirection(keys[key]); 
+    }
 })
+
+/**
+ * Event listener para la cruceta.
+ */
+document.querySelectorAll('.cross button').forEach(button => {
+    const dir = button.classList[0];
+    button.addEventListener('click', () => changeDirection(dir));
+});
+
+/**Event listener para los botones de inicio.*/
+startButtonRound.addEventListener('click', () => {if (!running) startGame()});
+startButtonThin.addEventListener('click', () => {if (!running) startGame()});
+
+/** Event listener para los botones de finalización.*/
+stopButtonRound.addEventListener('click', () => {if (running) endGame()});
+stopButtonThin.addEventListener('click', () => {if (running) endGame()});
 
 /**Inicio del programa*/
 
