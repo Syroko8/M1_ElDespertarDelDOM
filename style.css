@@ -20,7 +20,7 @@ body {
 .console {
     width: 420px;
     padding: 22px 22px 40px;
-    border-radius: 12px 12px 70px 12px;
+    border-radius: 12px 12px 100px 12px;
     background: linear-gradient(160deg, #d8d6cc, var(--shell) 40%, var(--shell-dark));
 }
 
@@ -126,16 +126,11 @@ body {
 
 .overlay.hidden { display: none; }
 
-label {
-    color: var(--label);
-    font-size: 0.7rem;
-}
-
 .controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 26px;
+    margin-top: 70px;
     padding: 6px;
 }
 
@@ -217,4 +212,54 @@ label {
 .ab-label {
     color: var(--label);
     font-weight: 700;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 34px;
+}
+
+.start-buttons {
+    display: flex;
+    gap: 22px;
+    margin-left: 110px;
+}
+
+.menu-item {
+  display: flex;
+  width: 36px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transform: rotate(340deg);
+}
+
+.thin-button {
+    width: 44px;
+    height: 12px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: rgb(144, 144, 152);
+    box-shadow: 0 2px 1px rgb(94, 94, 100);
+}
+
+.thin-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 1px rgba(94, 94, 100, 0.40);
+}
+
+.label {
+    color: var(--label);
+    font-size: 0.7rem;
+}
+
+.speaker {
+    width: 80px;
+    height: 50px;
+    margin-right: 10px;
+    background: repeating-linear-gradient(90deg, #8b8b86 0 5px, transparent 5px 12px);
+    transform: rotate(320deg);
 }
