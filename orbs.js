@@ -1,3 +1,7 @@
+/**
+ * @author Nicolás Puebla Martín
+ */
+
 // Variables globales.
 const boardSize = 15;
 const chain = []
