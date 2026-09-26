@@ -4,6 +4,7 @@ const chain = []
 const cells = [];
 let energy = {x:0, y:0};
 let direction = 'right';
+let lastExecutedDirection = 'right';
 let score = 0;
 let best = 0;
 let running = false;
@@ -129,6 +130,9 @@ const step = () => {
         return;
     }
 
+    // Guardamos la última dirección a la que nos hayamos movido.
+    lastExecutedDirection = direction;
+
     // Añadimos la cabeza al inicio de la lista.
     chain.unshift(head);
 
@@ -190,10 +194,31 @@ const changeDirection = (newDirection) => {
 
     // Comprobamos que no se esté intentando dar la vuelta.
     const newDirectionCoord = directions[newDirection];
-    const actualDirection = directions[direction];
+    const actualDirection = directions[lastExecutedDirection];
     if (actualDirection.x === -newDirectionCoord.x && actualDirection.y === -newDirectionCoord.y) return;
 
     direction = newDirection;
+}
+
+/**
+ * Método que cambia entre modo oscuro y claro.
+ */
+const swapColorTheme = () => {
+    const body = document.querySelector('body');
+    const consoleBody = document.querySelector('.console');
+    const labelList = (document.querySelectorAll('.ab-label, .label'));
+
+    body.classList.toggle('body-toggle');
+    consoleBody.classList.toggle('console-toggle');
+
+    labelList.forEach(label => {
+    
+        if (label.classList.contains('ab-label')) {
+            label.classList.toggle('ab-label-toggle');
+        } else {
+            label.classList.toggle('label-toggle');
+        }
+    });    
 }
 
 /**
@@ -207,6 +232,8 @@ document.addEventListener("keydown", (event) => {
         web no tiene scroll).*/
         event.preventDefault();
         if (running) changeDirection(keys[key]); 
+    } else {
+        if (key == 'p') swapColorTheme();
     }
 })
 

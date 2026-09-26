@@ -15,6 +15,10 @@ body {
     display: grid;
     align-items: center;
     justify-content: center;
+
+    &.body-toggle {
+        background: linear-gradient(180deg, #cdccc9, #a8a5a0 70%, #8b8a86);
+    }
 }
 
 .console {
@@ -22,6 +26,10 @@ body {
     padding: 22px 22px 40px;
     border-radius: 12px 12px 100px 12px;
     background: linear-gradient(160deg, #d8d6cc, var(--shell) 40%, var(--shell-dark));
+
+    &.console-toggle {
+        background: linear-gradient(160deg, #494949, #393937 40%, #2b2b28);
+    }
 }
 
 .gray-wrapper {
@@ -212,6 +220,11 @@ body {
 .ab-label {
     color: var(--label);
     font-weight: 700;
+    font-size: 0.7;
+    
+    &.ab-label-toggle {
+        color: var(--magenta);
+    }
 }
 
 .bottom {
@@ -254,6 +267,11 @@ body {
 .label {
     color: var(--label);
     font-size: 0.7rem;
+    font-weight: 700;
+
+    &.label-toggle {
+        color: var(--magenta);
+    }
 }
 
 .speaker {
