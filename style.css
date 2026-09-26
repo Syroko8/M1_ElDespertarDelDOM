@@ -15,6 +15,10 @@ body {
     display: grid;
     align-items: center;
     justify-content: center;
+
+    &.body-toggle {
+        background: linear-gradient(180deg, #cdccc9, #a8a5a0 70%, #8b8a86);
+    }
 }
 
 .console {
@@ -25,6 +29,12 @@ body {
     box-shadow: 
         inset 0  2px 0 rgba(255, 255, 255, 0.6),
         0 0 20px rgba(255, 255, 255, 0.252);
+
+    &.console-toggle {
+        background: linear-gradient(160deg, #494949, #393937 40%, #2b2b28);
+        box-shadow: 
+        inset 0  2px 0 rgba(120, 119, 119, 0.6);
+    }
 }
 
 .gray-wrapper {
@@ -215,6 +225,11 @@ body {
 .ab-label {
     color: var(--label);
     font-weight: 700;
+    font-size: 0.7;
+    
+    &.ab-label-toggle {
+        color: var(--magenta);
+    }
 }
 
 .bottom {
@@ -257,6 +272,11 @@ body {
 .label {
     color: var(--label);
     font-size: 0.7rem;
+    font-weight: 700;
+
+    &.label-toggle {
+        color: var(--magenta);
+    }
 }
 
 .speaker {
